@@ -1,0 +1,12 @@
+appId: com.status.triza
+productName: T:Riza Status Software
+copyright: Copyright © 2023 T:Riza Corporation
+directories:
+  output: dist
+  buildResources: resources
+files:
+  - from: .
+    filter:
+      - package.json
+      - app
+publish: null

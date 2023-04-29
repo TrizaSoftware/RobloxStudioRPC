@@ -1,0 +1,9 @@
+{
+    "info": {
+        "backendVersion": "0.0.1",
+        "engine": "T:Riza Infrastructure Server Core Version 2",
+        "copyright": "T:Riza Corporation 2020-2023"
+    },
+    "port": 29182,
+    "discordApplicationId": "1101898061648773120"
+}
