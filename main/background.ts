@@ -1,7 +1,7 @@
 import { app } from 'electron';
 import serve from 'electron-serve';
 import { createWindow } from './helpers';
-import { ExpressServer } from './server';
+import { WebServer } from './server';
 
 const isProd: boolean = process.env.NODE_ENV === 'production';
 
@@ -29,6 +29,6 @@ if (isProd) {
 })();
 
 app.on('window-all-closed', () => {
-  ExpressServer.close()
+  WebServer.close()
   app.quit();
 });

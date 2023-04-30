@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -7,8 +7,16 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
 import Typography from '@mui/material/Typography';
-import Link from '../components/Link';
+import Box from '@mui/material/Box';
+import Collapse from '@mui/material/Collapse';
+import IconButton from '@mui/material/IconButton';
+import Alert, { AlertColor } from '@mui/material/Alert';
+import CloseIcon from '@mui/icons-material/Close';
+//import Link from '../components/Link';
 import {styled} from '@mui/material';
+import io, { Socket } from 'socket.io-client';
+import config from '../../config.json';
+import Router from 'next/router';
 
 const Root = styled('div')(({theme}) => {
     return {
@@ -20,39 +28,62 @@ const Root = styled('div')(({theme}) => {
 
 function Home() {
     const [open, setOpen] = React.useState(false);
+    const [alertText, setText] = React.useState("")
+    const [alertSeverity, setSeverity] = React.useState("info" as AlertColor)
     const handleClose = () => setOpen(false);
     const handleClick = () => setOpen(true);
+    let socket: Socket
+    useEffect(() => {
+        if (!Router.isReady){
+            return;
+        }
+        socket = io(`http://localhost:${config.port}`);
+        socket.on("connect", () => {
+            setOpen(true)
+            setSeverity("success")
+            setText("Successfully Connected To Socket!")
+        });
+        socket.on("disconnect", () => {
+            setOpen(true)
+            setSeverity("error")
+            setText("Socket Disconnected!")
+        })
+    }, []);
 
     return (
         <React.Fragment>
             <Head>
-                <title>Home - Nextron (with-typescript-material-ui)</title>
+                <title>Roblox Studio RPC</title>
             </Head>
             <Root>
-                <Dialog open={open} onClose={handleClose}>
-                    <DialogTitle>Super Secret Password</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>1-2-3-4-5</DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button color="primary" onClick={handleClose}>
-                            OK
-                        </Button>
-                    </DialogActions>
-                </Dialog>
-                <Typography variant="h4" gutterBottom>
-                    Material-UI
+            <Box sx={{ width: '80%' }} ml={"10%"}>
+                <Collapse in={open}>
+                    <Alert
+                    severity={alertSeverity}
+                    action={
+                        <IconButton
+                        aria-label="close"
+                        color="inherit"
+                        size="small"
+                        onClick={() => {
+                            setOpen(false);
+                        }}
+                        >
+                        <CloseIcon fontSize="inherit" />
+                        </IconButton>
+                    }
+                    sx={{ mb: 2 }}
+                    >
+                        {alertText}
+                    </Alert>
+                </Collapse>
+                </Box>
+                <Typography variant='h4' fontFamily={"GothamMedium"}>
+                    Roblox Studio RPC
                 </Typography>
-                <Typography variant="subtitle1" gutterBottom>
-                    with Nextron
-                </Typography>
-                <img src="/images/logo.png"/>
-                <Typography gutterBottom>
-                    <Link href="/next">Go to the next page</Link>
-                </Typography>
-                <Button variant="contained" color="secondary" onClick={handleClick}>
-                    Super Secret Password
-                </Button>
+                <Typography variant='body1' fontFamily={"GothamMedium"}>
+                    Created by The T:Riza Corporation
+                 </Typography>
             </Root>
         </React.Fragment>
     );

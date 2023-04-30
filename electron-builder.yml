@@ -1,5 +1,5 @@
-appId: com.status.triza
-productName: T:Riza Status Software
+appId: com.triza.roblox-studio-rpc
+productName: Roblox Studio RPC
 copyright: Copyright © 2023 T:Riza Corporation
 directories:
   output: dist
@@ -9,4 +9,10 @@ files:
     filter:
       - package.json
       - app
-publish: null
+publish: 
+  provider: github
+  owner: TrizaCorporation
+  repo: StatusSoftware
+win:
+  publish:
+    - github

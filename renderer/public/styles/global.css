@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'GothamBook';
+    src: url("../fonts/GothamBook.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'GothamMedium';
+    src: url("../fonts/GothamMedium.woff2") format("woff2");
+}
