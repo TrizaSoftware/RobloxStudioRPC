@@ -1,0 +1,23 @@
+version: 2.1
+executors:
+  main-executor:
+    docker:
+      - image: circleci/node:16
+        auth:
+          # ensure you have first added these secrets
+          # visit app.circleci.com/settings/project/github/TrizaCorporation/StatusSoftware/environment-variables
+          username: $DOCKER_HUB_USER
+          password: $DOCKER_HUB_PASSWORD
+jobs:
+  publish-version:
+
+    executor: main-executor
+    steps:
+      - checkout
+      - run: |
+          npm install
+
+workflows:
+  manage-version:
+    jobs:
+      - publish-version
