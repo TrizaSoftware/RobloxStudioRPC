@@ -8,12 +8,6 @@ jobs:
           # visit app.circleci.com/settings/project/github/TrizaCorporation/StatusSoftware/environment-variables
           username: $DOCKER_HUB_USER
           password: $DOCKER_HUB_PASSWORD
-      - image: node:19
-        auth:
-          # ensure you have first added these secrets
-          # visit app.circleci.com/settings/project/github/TrizaCorporation/StatusSoftware/environment-variables
-          username: $DOCKER_HUB_USER
-          password: $DOCKER_HUB_PASSWORD
     steps:
       - checkout
       - run: npm install
