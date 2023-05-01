@@ -18,6 +18,7 @@ jobs:
       macos:
         xcode: 14.2.0
       steps:
+         - checkout
         - node/install:
             node-version: "16.16.0"
         - run: npm install
