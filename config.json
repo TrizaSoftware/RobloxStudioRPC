@@ -5,5 +5,6 @@
         "copyright": "T:Riza Corporation 2020-2023"
     },
     "port": 29182,
-    "discordApplicationId": "1101898061648773120"
+    "discordApplicationId": "1101898061648773120",
+    "latestReleaseEndpoint": "https://api.github.com/repos/TrizaCorporation/RobloxStudioRPC/releases/latest"
 }
