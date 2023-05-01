@@ -6,6 +6,7 @@ import { Client } from "@xhayper/discord-rpc"
 import { Server } from "socket.io"
 import { createServer } from "http"
 import APIRouter from "./api"
+import bodyParser from "body-parser"
 
 const app = express()
 const httpServer = createServer(app)
@@ -24,6 +25,7 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions))
+app.use(bodyParser.json())
 
 // HANDLE SOCKET.IO
 
@@ -49,9 +51,6 @@ app.use("/", (request: Request, response: Response) => {
 // HANDLE DISCORD RPC
 
 discordRPCClient.on("ready", () => {
-  discordRPCClient.user?.setActivity({
-    state: "Testing 123"
-  })
   console.log(`Logged In As ${discordRPCClient.user?.username}#${discordRPCClient.user?.discriminator}`)
 })
 
@@ -65,5 +64,6 @@ const server = httpServer.listen(config.port)
 
 export {
   app as ExpressApp,
-  server as WebServer
+  server as WebServer,
+  discordRPCClient as DiscordRPCClient
 }
