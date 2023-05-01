@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  publish-version:
+  publish-win:
     docker: 
       - image: electronuserland/builder:wine
         auth:
@@ -11,9 +11,15 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: npm run bap
-
-workflows:
+      - run: npm run build-publish:win
+  publish-mac: 
+      macos:
+        xcode: 11.0.0
+      steps:
+        - node/install:
+            node-version: "13.11.0"
+        - run: npm install
+        - run: npm run build-publish:mac
   manage-version:
     jobs:
-      - publish-version
+      - publish-win

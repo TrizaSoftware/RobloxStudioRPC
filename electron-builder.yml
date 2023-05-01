@@ -16,3 +16,9 @@ publish:
 win:
   publish:
     - github
+linux:
+  publish:
+    - github
+mac:
+  publish:
+    - github
