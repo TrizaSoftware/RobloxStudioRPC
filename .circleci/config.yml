@@ -8,7 +8,7 @@ jobs:
           # visit app.circleci.com/settings/project/github/TrizaCorporation/StatusSoftware/environment-variables
           username: $DOCKER_HUB_USER
           password: $DOCKER_HUB_PASSWORD
-      - image: circleci/node:19
+      - image: circleci/node:17
         auth:
           # ensure you have first added these secrets
           # visit app.circleci.com/settings/project/github/TrizaCorporation/StatusSoftware/environment-variables
