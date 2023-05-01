@@ -1,6 +1,6 @@
 version: 2.1
 executors:
-  my-custom-executor:
+  main-executor:
     docker:
       - image: circleci/node:16
         auth:
@@ -11,13 +11,13 @@ executors:
 jobs:
   publish-version:
 
-    executor: my-custom-executor
+    executor: main-executor
     steps:
       - checkout
       - run: |
-          # echo Hello, World!
+          # npm install
 
 workflows:
-  my-custom-workflow:
+  manage-version:
     jobs:
       - publish-version
