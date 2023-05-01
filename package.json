@@ -10,6 +10,7 @@
     "build": "nextron build",
     "build-publish:win": "nextron build --win --publish always",
     "build-publish:mac": "nextron build --mac --publish always",
+    "build-publish:linux": "nextron build --linux --publish always",
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {

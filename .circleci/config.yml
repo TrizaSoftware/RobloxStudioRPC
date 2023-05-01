@@ -23,6 +23,15 @@ jobs:
             node-version: "16.16.0"
         - run: npm install
         - run: npm run build-publish:mac
+  publish-linux:
+      machine:
+        image: ubuntu-2004:2023.04.2
+      steps:
+        - checkout
+        - node/install:
+            node-version: "16.16.0"
+        - run: npm install
+        - run: npm run build-publish:linux
 workflows:
   manage-version:
       jobs:
