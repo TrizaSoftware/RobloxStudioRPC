@@ -16,7 +16,7 @@ jobs:
       - run: npm run build-publish:win
   publish-mac: 
       macos:
-        xcode: 11.0.0
+        xcode: 14.2.0
       steps:
         - node/install:
             node-version: "13.11.0"
