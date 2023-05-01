@@ -6,7 +6,6 @@ import theme from '../lib/theme';
 import type {EmotionCache} from "@emotion/cache";
 import createEmotionCache from '../lib/create-emotion-cache';
 import {CacheProvider} from '@emotion/react';
-import Router from "next/router";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -23,15 +22,7 @@ export default function MyApp(props: MyAppProps) {
                 <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/>
             </Head>
             <ThemeProvider theme={theme}>
-                {
-                    Router.isReady ? (
-                        <Component {...pageProps} />
-                    ) : (
-                        <Box sx={{ display: 'flex' }}>
-                            <CircularProgress color='primary'/>
-                        </Box>
-                    )
-                }
+                <Component {...pageProps} />
                 <CssBaseline/>
             </ThemeProvider>
         </CacheProvider>
