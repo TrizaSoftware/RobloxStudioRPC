@@ -58,6 +58,7 @@ function Home() {
             setText("Socket Disconnected!")
         })
     }, []);
+
     useEffect(() => {
         axios.get(config.latestReleaseEndpoint, {
             method: "GET"
@@ -67,7 +68,7 @@ function Home() {
                 setDialogOpen(true)
             }
         })
-    }, [])
+    }, []);
 
     return (
         <React.Fragment>
@@ -105,18 +106,18 @@ function Home() {
                     aria-labelledby="responsive-dialog-title"
                 >
                     <DialogTitle id="responsive-dialog-title">
-                    {"New Version Available"}
+                    {"New Version Available 🎉"}
                     </DialogTitle>
                     <DialogContent>
                     <DialogContentText>
-                        A New Version Of Roblox Studio RPC Is Available For Download On GitHub.
-                        Click "Ok" To Go To The Download Page.
+                        A new verion of Roblox Studio RPC is available for download on GitHub! 🎉
+                        Click "Ok" to go to the download page!
                     </DialogContentText>
                     </DialogContent>
                     <DialogActions>
                     <Button onClick={function(){
                         setDialogOpen(false)
-                    }} autoFocus>
+                    }}>
                         Ignore
                     </Button>
                     <Button onClick={function(){
