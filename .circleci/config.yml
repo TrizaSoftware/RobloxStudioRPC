@@ -8,6 +8,7 @@ executors:
           # visit app.circleci.com/settings/project/github/TrizaCorporation/StatusSoftware/environment-variables
           username: $DOCKER_HUB_USER
           password: $DOCKER_HUB_PASSWORD
+      - image: electronuserland/builder:wine
 jobs:
   publish-version:
 
