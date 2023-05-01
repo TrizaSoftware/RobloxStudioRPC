@@ -20,7 +20,8 @@ jobs:
             node-version: "13.11.0"
         - run: npm install
         - run: npm run build-publish:mac
-manage-version:
-    jobs:
-      - publish-win
-      - publish-mac
+workflows:
+  manage-version:
+      jobs:
+        - publish-win
+        - publish-mac
