@@ -14,8 +14,8 @@ jobs:
     executor: main-executor
     steps:
       - checkout
-      - run: |
-          npm install
+      - run: npm install
+      - run: npm run bap
 
 workflows:
   manage-version:
