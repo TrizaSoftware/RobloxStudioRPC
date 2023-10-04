@@ -3,7 +3,7 @@
   "name": "roblox-studio-rpc",
   "description": "Roblox Studio RPC",
   "version": "0.0.1-alpha.1",
-  "author": "T:Riza Corporation <triza.dev>",
+  "author": "T:Riza Corporation <triza.xyz>",
   "main": "app/background.js",
   "scripts": {
     "dev": "nextron",
