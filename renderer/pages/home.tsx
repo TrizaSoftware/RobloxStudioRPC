@@ -55,7 +55,7 @@ function Home() {
         socket.on("disconnect", () => {
             setOpen(true)
             setSeverity("error")
-            setText("Socket Disconnected!")
+            setText("Socket disconnected!")
         })
     }, []);
 
