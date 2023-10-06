@@ -50,7 +50,7 @@ function Home() {
         socket.on("connect", () => {
             setOpen(true)
             setSeverity("success")
-            setText("Successfully Connected To Socket!")
+            setText("Successfully connected to socket!")
         });
         socket.on("disconnect", () => {
             setOpen(true)
@@ -110,7 +110,7 @@ function Home() {
                     </DialogTitle>
                     <DialogContent>
                     <DialogContentText>
-                        A new verion of Roblox Studio RPC is available for download on GitHub! 🎉
+                        A new version of Roblox Studio RPC is available for download on GitHub! 🎉
                         Click "Ok" to go to the download page!
                     </DialogContentText>
                     </DialogContent>
